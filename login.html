@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="regLog.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- The first row of the page to give it a purplr bg-clr -->
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #cc99ff; width:100%; height: 100px;">
+    </div>
+  </div>
+
+  <!-- Middle row of the page -->
+  <div class="row">
+    <!-- Remaining part i.e the left side div of the main middle div -->
+    <div class="remaining col-lg-4 col-md-4 col-sm-0">
+    </div>
+    <!-- MAin middle div of the page  -->
+    <div class="middle col-lg-4 col-md-4 col-sm-12 position-relative">
+      <!-- Admin button -->
+      <button type="submit" class="btn btn-primary position-absolute top-0 end-0">admin</button>
+      <!-- main heading -->
+      <h1 class="heading">Login</h1>
+      <!-- Sign in button -->
+      <button type="button" class="signin btn btn-primary"><i class="img fab fa-google"></i>Sign in with Google</button>
+      <!-- Form to take input from user for username and password details -->
+      <form class="mx-auto" action="upload.php" method="post" enctype="multipart/form-data">
+        <div class="box mx-auto mb-3" style="width: 80%">
+          <label for="username" class="form-label">Username:</label>
+          <input type="username" class="form-control" id="username" aria-describedby="emailHelp">
+        </div>
+        <div class="box mx-auto mb-3" style="width: 80%">
+          <label for="exampleInputPassword1" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="bottom btn btn-primary">Click to Login</button>
+      </form>
+    </div>
+
+    <!-- Remaining part i.e the right side div of the main middle div -->
+    <div class="remaining col-lg-4 col-md-4 col-sm-0">
+    </div>
+
+  <!-- The last row div of the page to add purple bg-clr -->
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #cc99ff; width:100%; height: 30rem;">
+    </div>
+  </div>
+</body>
+
+</html>
