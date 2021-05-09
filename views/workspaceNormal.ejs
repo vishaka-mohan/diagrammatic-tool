@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="/js/fabric.min.js"></script>
+    
+    <script src="/js/scriptNormal.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+
+</head>
+<body onload="init()">
+    <a href="/dashboard">back to dashboard</a>
+    <nav>
+        <button onclick="addLine()">Add Line</button>
+        <button onclick="addRect()">Add Rectangle</button>
+        <button onclick="addSquare()">Add Square</button>
+        <button onclick="addArrow()">Add Arrow</button>
+        <button onclick="addParallelogram()">Add parallelogram</button>
+        <button onclick="addHexagon()">Add Hexagon</button>
+        <button onclick="addDiamond()">Add Diamond</button>
+        <button onclick="addStar()">Add star</button>
+        <button onclick="Addtext()">Add Text box</button>
+        <button onclick="addDoubleTriangle()">Add double triangle</button>
+        <br>
+        <button onclick="addOctagon()">Add Octagon</button>
+        <button onclick="addCircle()">Add Circle</button>
+        <button onclick="addEllipse()">Add Ellipse</button>
+        <button onclick="addPentagon()">Add pentagon</button>
+        <button onclick="addTrapezium()">Add trapezium</button>
+        <button onclick="addTriangle()">Add triangle</button>
+        <button onclick="addRoundRect()">Add rounded rectangle</button>
+        <button onclick="addRightTriangle()">Add right triangle</button>
+        <button onclick="addRoundRect1()">Add round rect 1</button>
+        <br>
+        <p>Fill color</p>
+        <input id="color" type="color" >
+        <button id="changeCol" onclick="changeColor()">Change color</button>
+        
+
+        
+    </nav>
+
+    <canvas id="c" width="1500" height="600" style="border-color: coral; border-style: solid;"></canvas>
+
+
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Export
+  </button>
+
+  
+
+  <% if(Object.keys(canvasObject).length === 0){ %>
+
+    <button type="button" class="btn btn-primary" id="save" onclick="saveWorkspace()">
+        Save
+      </button>
+
+      <% } else { %>
+        <button type="button" class="btn btn-primary" id="save" onclick="saveExistingWorkspace()">
+            Save
+          </button>
+
+        <% } %>
+
+
+  <button type="button" class="btn btn-primary" onclick="genLink()" data-toggle="modal" data-target="#exampleModal1">
+    Share link
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Download the workspace image in preferred format</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <a id="png" href="" ><button>Export as png</button></a>
+          <a id="jpg" href="" ><button>Export as jpg</button></a>
+          <a id="svg" href="" ><button>Export as svg</button></a>
+        </div>
+        <div class="modal-footer">
+          <p id="dl-alert"></p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Share Modal -->
+   <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share this link</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body1" style="font-size: 12px;">
+          
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+   
+    
+    <script>
+        var canvas = new fabric.Canvas('c');
+
+
+        //PREVENT OBJECT FROM LEAVING BOUNDARIES 
+
+        canvas.on('object:moving', function (e) {
+        var obj = e.target;
+        // if object is too big ignore
+        if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
+            return;
+        }        
+        obj.setCoords();        
+        // top-left  corner
+        if(obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0){
+            obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top);
+            obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left);
+        }
+        // bot-right corner
+        if(obj.getBoundingRect().top+obj.getBoundingRect().height  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width  > obj.canvas.width){
+            obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
+            obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
+        }
+    });
+
+
+
+    //EXPORT
+
+        var link = document.querySelector('#png');
+        var link1 = document.querySelector('#jpg');
+        var link2 = document.querySelector('#svg');
+        var dlAlert = document.querySelector('#dl-alert');
+
+            
+        link.addEventListener('click', function(ev) {
+            link.href = canvas.toDataURL();
+            link.download = "mypainting.png";
+            dlAlert.innerHTML = "Workspace image was downloaded";
+        }, false);
+        
+
+      
+        link1.addEventListener('click', function(ev) {
+            link1.href = canvas.toDataURL();
+            link1.download = "mypainting.jpg";
+            dlAlert.innerHTML = "Workspace image was downloaded";
+        }, false);
+        
+        link2.addEventListener('click', function(ev) {
+            link2.href = canvas.toDataURL();
+            link2.download = "mypainting.svg";
+            dlAlert.innerHTML = "Workspace image was downloaded";
+        }, false);
+        
+         
+        console.log("myVar");
+        
+         var myVar  = <%- JSON.stringify(canvasObject) %>;
+         console.log(myVar);
+         showWorkspace(myVar);
+        
+         function genLink(){
+            let link = "http://127.0.0.1:3000/workspace/" + <%- JSON.stringify(userId) %> + "/" + <%- JSON.stringify(currDoc) %> + "/collab";
+            console.log(link);
+            document.querySelector('.modal-body1').innerHTML = link;
+        }       
+
+        
+    
+
+    
+    </script>
+    
+
+</body>
+</html>

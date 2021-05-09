@@ -1,4 +1,15 @@
 <h1>Dashboard</h1>
 <h2>Welcome <%= user.name %></h2>
+<a href="/workspace/<%- user._id %>"><button>New doc</button></a>
+
+
+<h2>Your saved docs: </h2>
+
+<% for(var i=0; i < result.length; i++){ %>
+    <a href="/workspace/<%- user._id %>/<%- result[i].docName %>"><%= result[i].docName %></a>
+    <br>
+
+<% } %>
+
 
 <a href="/logout">Logout</a>
