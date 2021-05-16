@@ -1,5 +1,6 @@
 const Doc = require('../models/Docs');
 const User = require('../models/User');
+const Feedback = require('../models/Feedback');
 
 let currUser, currDoc, currId;
 
@@ -245,6 +246,30 @@ module.exports.saved_docs_collab_post = async (req,res) => {
     }
        
     
+}
+
+module.exports.feedback_get = (req,res) => {
+    currUser = res.locals.user.email;
+    res.render('feedback');
+}
+
+module.exports.feedback_post = async (req,res) => {
+    try{
+        console.log(req.body);
+    console.log(currUser);
+    let feedback = new Feedback({userEmail: currUser, title: req.body.title, content: req.body.content }) ;
+        
+        await feedback.save(function (err, doc) {
+
+            if (err) return console.error(err);
+            console.log(feedback.title + " saved.");
+
+          });
+    }catch(err){
+        console.log(err);
+    }
+    
+     res.render('feedback');
 }
 
 

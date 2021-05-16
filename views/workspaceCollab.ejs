@@ -1,90 +1,93 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <!-- CSS only -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="/js/fabric.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/scriptCollab.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <style>
-     
-    </style>
-
+  <link rel="stylesheet" href="/workspaceStyles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ 
+  
+  <title>Document</title>
 </head>
+
 <body onload="init()">
-    <a href="/dashboard">back to dashboard</a>
-    <nav>
-        <button onclick="addLine()">Add Line</button>
-        <button onclick="addRect()">Add Rectangle</button>
-        <button onclick="addSquare()">Add Square</button>
-        <button onclick="addArrow()">Add Arrow</button>
-        <button onclick="addParallelogram()">Add parallelogram</button>
-        <button onclick="addHexagon()">Add Hexagon</button>
-        <button onclick="addDiamond()">Add Diamond</button>
-        <button onclick="addStar()">Add star</button>
-        <button onclick="Addtext()">Add Text box</button>
-        <button onclick="addDoubleTriangle()">Add double triangle</button>
-        <br>
-        <button onclick="addOctagon()">Add Octagon</button>
-        <button onclick="addCircle()">Add Circle</button>
-        <button onclick="addEllipse()">Add Ellipse</button>
-        <button onclick="addPentagon()">Add pentagon</button>
-        <button onclick="addTrapezium()">Add trapezium</button>
-        <button onclick="addTriangle()">Add triangle</button>
-        <button onclick="addRoundRect()">Add rounded rectangle</button>
-        <button onclick="addRightTriangle()">Add right triangle</button>
-        <button onclick="addRoundRect1()">Add round rect 1</button>
-        <br>
-        <p>Fill color</p>
-        <input id="color" type="color" >
-        <button id="changeCol" onclick="changeColor()">Change color</button>
-        
-
-        
-    </nav>
-
-    <canvas id="c" width="1500" height="600" style="border-color: coral; border-style: solid;"></canvas>
 
 
 
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Export
-  </button>
-
+    <div class="row">
+        <div class="col-2" id="top">
+          <button type="button" class="btn btn-secondary" >Shapes</button>
+          <button type="button" class="btn btn-secondary" >Templates</button>
+            
+        </div>
   
-
-  <% if(Object.keys(canvasObject).length === 0){ %>
-
-    <button type="button" class="btn btn-primary" id="save" onclick="saveWorkspace()">
-        Save
-      </button>
-
-      <% } else { %>
-        <button type="button" class="btn btn-primary" id="save" onclick="saveExistingWorkspace()">
-            Save
-          </button>
-
-        <% } %>
-
-
-  <button type="button" class="btn btn-primary" onclick="genLink()" data-toggle="modal" data-target="#exampleModal1">
-    Share link
-  </button>
   
-  <!-- Modal -->
+        <div class="col-4" id="topVIO" style="background-color: #C79CFF;">
+            <a href="/dashboard" style="margin-right: 20px;"><button type="button" class="btn btn-primary" >Dashboard</button></a> 
+          <input id="color" type="color" >
+        <button id="changeCol" onclick="changeColor()" class="btn btn-primary">Change color</button>
+        <button type="button" class="btn btn-primary"  onclick="Addtext()">Text box</button>
+   
+  
+          
+      </div>
+        
+        <div class="col-6 topVIO ">
+  
+            <input type="text" name="" value="" id="enterLink" placeholder="Enter Link Here">
+            <button type="button" class="btn btn-primary" id="buttonLink" onclick="takeToLink()">Go to link</button>
+          
+  
+        </div>
+  
+      </div>
+
+
+    <div class="row">
+      <div class="col-2">
+        <div class="row" id="top">
+         <strong><p style="text-align: center;">Shapes and connectors</p></strong> 
+        </div>
+      
+
+      
+
+      </div>
+     
+
+      <% if(Object.keys(canvasObject).length === 0){ %>
+
+        <div class="col-1">
+            <button type="button" class="btn btn-secondary" id="save" onclick="saveWorkspace()" >Save</button>
+          </div>
+    
+          <% } else { %>
+            <div class="col-1">
+                <button type="button" class="btn btn-secondary" id="save" onclick="saveExistingWorkspace()" >Save</button>
+              </div>
+    
+            <% } %>
+    
+      <div class="col-9">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #D4FF9C; margin-left: 10px; color: #000;">Export</button>
+        
+        <button type="button" class="btn btn-secondary" onclick="genLink()" data-toggle="modal" data-target="#exampleModal1" style="float: right; background-color: #D4FF9C; margin-left: 10px; color: #000;">Share Link</button>
+      </div>
+
+    </div>
+
+    <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -132,13 +135,127 @@
     </div>
   </div>
 
-  <div id="message-container">Here message</div>
-  <form id="send-container">
-    <input type="text" id="message-input">
-    <button type="submit" id="send-button">Send</button>
-  </form>
-   
-    
+
+  
+    <div class="row">
+      <div class="col-2" style="background-color: #C79CFF;">
+
+
+        
+          <div class="row mt-2">
+            <div class="col h-100">
+              <button type="button" class="btn btn-outline-dark btn-sm shape" style="background-color: #D4FF9C; color: #000;" onclick="addLine()">Line</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C; color: #000;" onclick="addRect()">Rectangle</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addSquare()">Square</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addArrow()">Arrow</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addParallelogram()">Parallelogram</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addHexagon()">Hexagon</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addDiamond()">Diamond</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addStar()">Star</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addCircle()">Circle</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addDoubleTriangle()">Double Triangle</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addOctagon()">Octagon</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addPentagon()">Pentagon</button>
+            </div>
+            
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addEllipse()">Ellipse</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm"   style="background-color: #D4FF9C;color: #000;" onclick="addRoundRect1()">Rounded Triangle</button>
+            </div>
+            
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addTrapezium()">Trapezium</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addRightTriangle()">Right Triangle</button>
+            </div>
+          </div>
+          
+          
+        
+
+
+        </div>
+      <div class="col-8  " id="middle">
+        <canvas id="c" width="1240" height="800" ></canvas>
+      </div>
+      <div class="col-2 " id="right">
+        
+         
+        <div class="row mt-2" id="collab">
+          <div class="col">
+            <strong><p>Live Chat</p></strong>
+          </div>
+        </div>
+        <div class="row mt-4" id="message-container" style="text-align: left;">
+          <div class="col">
+            <!-- insert name here -->
+          </div>
+          <div class="col">
+            <!-- insert message here -->
+          </div>
+        </div>
+
+        <div class="row mt-2" id="send">
+          <div >
+            <form id="send-container" style="left: 100px;">
+              <input type="text" id="message-input" name="" value="" placeholder="Enter message Here"style="float: left; margin-bottom:5px; margin-top:3px;">
+              <button type="submit" id="send-button" class="btn btn-outline-dark btn-sm" style="background-color: #000; color:#fff; float: left;">Send</button>
+
+            </form>
+            
+          </div>
+        </div>
+        <div class="row bottom">
+          <div class="col">
+
+          </div>
+        </div>
+
+
+      
+    </div>
+
+    </div>
+
     <script>
         var canvas = new fabric.Canvas('c');
 
@@ -175,6 +292,7 @@
 
             
         link.addEventListener('click', function(ev) {
+            console.log("png clicked");
             link.href = canvas.toDataURL();
             link.download = "mypainting.png";
             dlAlert.innerHTML = "Workspace image was downloaded";
@@ -183,12 +301,14 @@
 
       
         link1.addEventListener('click', function(ev) {
+            console.log("jpg clicked");
             link1.href = canvas.toDataURL();
             link1.download = "mypainting.jpg";
             dlAlert.innerHTML = "Workspace image was downloaded";
         }, false);
         
         link2.addEventListener('click', function(ev) {
+            console.log("svg clicked");
             link2.href = canvas.toDataURL();
             link2.download = "mypainting.svg";
             dlAlert.innerHTML = "Workspace image was downloaded";
@@ -207,6 +327,14 @@
             document.querySelector('.modal-body1').innerHTML = link;
         }       
 
+        function takeToLink(){
+          console.log("taking.");
+          let t = document.getElementById("enterLink").value;
+          window.open(t);
+        }
+
+        
+        
         let messageContainer = document.getElementById('message-container');
         let messageForm = document.getElementById('send-container');
         let messageInput = document.getElementById('message-input');
@@ -251,5 +379,8 @@ function appendMessage(message) {
     </script>
     
 
+
+
 </body>
+
 </html>

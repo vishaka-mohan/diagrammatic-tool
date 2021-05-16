@@ -1,0 +1,42 @@
+
+body{
+    font-family: 'Red Hat Display', sans-serif;
+  }
+  
+  .green{
+    background-color: #D4FF9C;
+  }
+  
+  .purple{
+    background-color: #c79cff;
+  }
+  
+  .purple-btns{
+    margin: 0.5rem;
+  }
+  
+  #main-heading{
+    margin-left: 1rem;
+    font-family: 'Red Hat Display', sans-serif;
+  }
+  
+  .table{
+    width: 80%;
+    text-align: center;
+  }
+  
+  .tbl-row{
+    background: #D4FF9C;
+  }
+  
+  .profileImg{
+    height:100px;
+    width:100px;
+    border-radius: 50px;
+  }
+  
+  .b1Info{
+    display: block;
+  }
+  
+  

@@ -1,0 +1,50 @@
+body,html{
+
+    font-family: 'Red Hat Display', sans-serif;
+    margin-left: 15px;
+  
+  }
+  
+  #top{
+    background-color: #D4FF9C;
+    text-align: center;
+  }
+  #collab{
+    background-color: #C79CFF;
+  }
+  #send{
+    background-color: #EFDDDD;
+  }
+  #middle{
+    background-color: #DFC8C8;
+    
+  }
+  #right{
+    text-align: center;
+  }
+  .topVIO{
+    background-color: #C79CFF;
+    text-align: right;
+  }
+  .imgs{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+  }
+  .play{
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+  }
+  .bottom{
+    background-color: #C79CFF;
+  }
+  
+  .btn{
+    background-color: #D4FF9C;
+  }
+  
+  .btn-sm:hover {
+    background-color: #555555;
+    color: #000;
+  }
