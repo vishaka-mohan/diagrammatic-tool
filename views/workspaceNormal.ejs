@@ -12,6 +12,8 @@
     
     <script src="/js/fabric.min.js"></script>
     
+    
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/scriptNormal.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -129,7 +131,9 @@
       </div>
     </div>
   </div>
-   
+   <input type="text" id="enterLink"/>
+   <button type="submit" id="buttonLink" onclick="takeToLink()">Go to link</button>
+
     
     <script>
         var canvas = new fabric.Canvas('c');
@@ -167,6 +171,7 @@
 
             
         link.addEventListener('click', function(ev) {
+            console.log("png clicked");
             link.href = canvas.toDataURL();
             link.download = "mypainting.png";
             dlAlert.innerHTML = "Workspace image was downloaded";
@@ -175,12 +180,14 @@
 
       
         link1.addEventListener('click', function(ev) {
+            console.log("jpg clicked");
             link1.href = canvas.toDataURL();
             link1.download = "mypainting.jpg";
             dlAlert.innerHTML = "Workspace image was downloaded";
         }, false);
         
         link2.addEventListener('click', function(ev) {
+            console.log("svg clicked");
             link2.href = canvas.toDataURL();
             link2.download = "mypainting.svg";
             dlAlert.innerHTML = "Workspace image was downloaded";
@@ -198,6 +205,12 @@
             console.log(link);
             document.querySelector('.modal-body1').innerHTML = link;
         }       
+
+        function takeToLink(){
+          console.log("taking.");
+          let t = document.getElementById("enterLink").value;
+          window.open(t);
+        }
 
         
     

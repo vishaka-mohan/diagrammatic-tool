@@ -31,7 +31,7 @@ module.exports.docs_get = async (req,res) => {
     try{
         
         
-        res.render('workspace', {canvasObject: ''});
+        res.render('workspaceNormal', {canvasObject: '', userId: res.locals.user.id, currDoc: req.params.docName});
         
 
     }

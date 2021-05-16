@@ -1,11 +1,20 @@
 var canvas = new fabric.Canvas('c');
-
+const socket = io();
 let isLoadedFromJson = false;
 let w=1500, h=600;
 //var _clipboard = null;
 
 
-
+function emitEvent() {
+    let aux = canvas;
+    let json = aux.toJSON();
+    let data = {
+        w: w,
+        h: h,
+        data: json
+    };
+    socket.emit('drawing', data);
+}
 
 
 
