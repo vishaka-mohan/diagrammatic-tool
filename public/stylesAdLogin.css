@@ -1,0 +1,49 @@
+body,html{
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.3em;
+  }
+  .heading{
+    font-family: 'Red Hat Display', sans-serif;
+    margin-top: 5%;
+  }
+  
+  /* signin or Signup with Google */
+  .img{
+    padding-right: 1rem;
+  }
+  
+  /* all of the div blocks of the page */
+  div{
+    margin-top: 5%;
+  }
+  
+  /* Left and right div blocks to center main div */
+  .remaining{
+    background-color: #c79cff;
+  }
+  
+  /* Input blocks of the form */
+  .box{
+    text-align: left;
+  }
+  
+  /* form-labels of the page */
+  .form-label{
+    background:  #D4FF9C;
+  }
+  
+  /* All the buttons of the page */
+  .btn{
+    background-color: #c79cff;
+  }
+  
+  /* Click to Register/Login button */
+  .bottom{
+    margin: 1rem 0 3rem 0;
+  }
+  
+  /* Sign in/up button */
+  .signin{
+    margin: 1rem 0 1rem 0;
+  }

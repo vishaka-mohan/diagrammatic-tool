@@ -273,6 +273,14 @@ module.exports.feedback_post = async (req,res) => {
 }
 
 
-module.exports.adDashboard_get = (req,res) => {
-    res.render('adDashboard');
+module.exports.adDashboard_get = async (req,res) => {
+   
+        await Feedback.find({}, function(err, feedbacks) {
+            console.log(feedbacks);
+            res.render('adDashboard', {feedbacks: feedbacks});
+            
+         });
+        
+    
+    
 }

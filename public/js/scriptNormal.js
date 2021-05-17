@@ -237,7 +237,7 @@ function addRightTriangle(){
         { x: 200, y: 300},
         
         ], {
-            fill: 'white',
+            fill: '',
             stroke:'black',
             strokeWidth: 1,
     });
@@ -276,7 +276,7 @@ function addDiamond(){
         
 
     ], {
-        fill: 'white',
+        fill: '',
         stroke:'black',
         strokeWidth: 1,
     });
