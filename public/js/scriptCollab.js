@@ -102,7 +102,7 @@ function addPentagon(){
         x: 200,
         y: 10
     }], {
-        fill: 'white',
+        fill: '',
         stroke: 'black',
         strokeWidth: 1,
     });
@@ -239,7 +239,7 @@ function addRightTriangle(){
         { x: 200, y: 300},
         
         ], {
-            fill: 'white',
+            fill: '',
             stroke:'black',
             strokeWidth: 1,
     });
@@ -259,7 +259,7 @@ function addParallelogram(){
         { x: 80, y: 100},
         { x: 30, y: 100},
         ], {
-            fill: 'white',
+            fill: '',
             stroke:'black',
             strokeWidth: 1,
     });
@@ -278,7 +278,7 @@ function addDiamond(){
         
 
     ], {
-        fill: 'white',
+        fill: '',
         stroke:'black',
         strokeWidth: 1,
     });

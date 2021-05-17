@@ -33,10 +33,10 @@
   
   
         <div class="col-4" id="topVIO" style="background-color: #C79CFF;">
-            <a href="/dashboard" style="margin-right: 20px; margin-bottom: 5px;"><button type="button" class="btn btn-primary">Dashboard</button></a> 
-          <input id="color" type="color" >
-        <button id="changeCol" onclick="changeColor()" class="btn btn-primary">Change color</button>
-        <button type="button" class="btn btn-primary" onclick="Addtext()">Text box</button>
+            <a href="/dashboard" style="margin-right: 20px; margin-bottom: 5px;"><button type="button" class="btn btn-primary" style="background-color: #D4FF9C;color: #000;"> < Dashboard</button></a> 
+          <input id="color" type="color" style="height: 30px;" >
+        <button id="changeCol" onclick="changeColor()" class="btn btn-primary" style="background-color: #D4FF9C; margin-left: 10px; color: #000;">Change color</button>
+        <button type="button" class="btn btn-primary" onclick="Addtext()" style="background-color: #D4FF9C; margin-left: 10px; color: #000;">Text box</button>
           
   
           
@@ -45,7 +45,7 @@
         <div class="col-6 topVIO ">
   
             <input type="text" name="" value="" id="enterLink" placeholder="Enter Link Here">
-            <button type="button" class="btn btn-primary" id="buttonLink" onclick="takeToLink()">Go to link</button>
+            <button type="button" class="btn btn-primary" id="buttonLink" onclick="takeToLink()" style="background-color: #D4FF9C; margin-left: 10px; color: #000;">Go to link</button>
           
   
         </div>
@@ -68,7 +68,7 @@
       <% if(Object.keys(canvasObject).length === 0){ %>
 
         <div class="col-1">
-            <button type="button" class="btn btn-secondary" id="save" onclick="saveWorkspace()" >Save</button>
+            <button type="button" class="btn btn-secondary" id="save" onclick="saveWorkspace()"  >Save</button>
           </div>
     
           <% } else { %>
@@ -205,6 +205,12 @@
             </div>
             <div class="col">
               <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #D4FF9C;color: #000;" onclick="addRightTriangle()">Right Triangle</button>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col h-100">
+              <button type="button" class="btn btn-outline-dark btn-sm shape" style="background-color: #D4FF9C; color: #000;" onclick="addTriangle()">Triangle</button>
             </div>
           </div>
           
