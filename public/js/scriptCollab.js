@@ -479,6 +479,16 @@ function Addtext() {
     }));
 }
 
+function AddComment() { 
+    canvas.add(new fabric.IText('Add Note', { 
+    left: 50,
+    top: 100,
+    fontFamily: 'arial',
+    fill: '#000',
+        fontSize: 18
+    }));
+}
+
 
 function changeColor(){
     console.log(document.querySelector('#color').value);
