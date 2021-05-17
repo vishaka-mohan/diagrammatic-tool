@@ -2,7 +2,7 @@ const Doc = require('../models/Docs');
 const User = require('../models/User');
 const Feedback = require('../models/Feedback');
 
-let currUser, currDoc, currId;
+let currUser, currDoc='', currId;
 
 module.exports.dashboard_get = async (req,res) => {
 
@@ -13,7 +13,7 @@ module.exports.dashboard_get = async (req,res) => {
         console.log(currUser);
         let result = await Doc.find({ userEmail: currUser }).exec();
 
-        console.log(result);
+        //console.log(result);
 
         res.render('dashboard', {result: result});
         
@@ -30,9 +30,18 @@ module.exports.docs_get = async (req,res) => {
 
 
     try{
+        console.log(res.locals.user.id);
+        currId = res.locals.user.id;
+        console.log("doccc: "+currDoc);
+
+        const countDocs = await Doc.countDocuments({userEmail: currUser}).exec();
+
+        let docName = "doc" + countDocs;
+        currDoc = docName;
+        console.log(currDoc);
         
         
-        res.render('workspaceNormal', {canvasObject: '', userId: res.locals.user.id, currDoc: req.params.docName});
+        res.render('workspaceNormal', {canvasObject: '', userId: res.locals.user.id, currDoc: currDoc});
         
 
     }
@@ -69,8 +78,14 @@ module.exports.docs_post = async (req,res) => {
 
             if (err) return console.error(err);
             console.log(doc.docName + " saved to bookstore collection.");
-
+            
+            console.log('/workspace/'+ currId + '/' + docName);
+            res.redirect('/workspace/'+ currId + '/' + currDoc);
+            //res.render('workspaceNormal', {canvasObject: content, userId: currId, currDoc: currDoc});
           });
+          currDoc = docName;
+          console.log("current document: "+currDoc);
+         
 
 
     }

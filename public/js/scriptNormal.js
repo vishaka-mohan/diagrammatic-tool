@@ -584,35 +584,7 @@ function onKeyDownHandler(event) {
 
 let json;
 
-//SAVE WORKSPACE
-function saveWorkspace(){
-    jsonToSave = canvas.toJSON();
-    console.log("save function");
-    console.log(jsonToSave);
-    
 
-    $.ajax({
-        url: "/workspace/:id",
-        type: "POST",
-        
-        data: JSON.stringify(jsonToSave),
-        //dataType: "json",
-        //contentType: "application/json",
-        
-        
-
-        success: function(data) {
-            console.log('success');
-          
-            console.log(JSON.stringify(data));
-       },
-
-        error: function() {
-          console.log('process error');
-          console.log(jsonToSave);
-        },
-      });
-}
 
 function saveExistingWorkspace(){
     jsonToSave = canvas.toJSON();
