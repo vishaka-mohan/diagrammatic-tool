@@ -3,6 +3,7 @@ const User = require('../models/User');
 const Feedback = require('../models/Feedback');
 
 let currUser, currDoc='', currId;
+//let numUsers;
 
 module.exports.dashboard_get = async (req,res) => {
 
@@ -164,15 +165,19 @@ module.exports.saved_docs_post = async (req,res) => {
 module.exports.saved_docs_collab_get = async (req,res) => {
     
 
-
+    
     try{
 
         let history = [];
         const io = res.locals['socketio'];
         const users = {};
+        
 
         io.once('connection', function(socket){
             console.log('a user connected', socket.id);
+            console.log( socket.client.conn.server.clientsCount + " users connected" );
+            //numUsers = socket.client.conn.server.clientsCount;
+            
             // socket.broadcast.to(socket.id).emit('drawing', canvasData);
 
             for(let item of history)
@@ -221,7 +226,14 @@ module.exports.saved_docs_collab_get = async (req,res) => {
         let result = await Doc.find({ userEmail : userNow[0].email , docName: currDoc }).exec();
         let canvasObject = JSON.parse(Object.keys(JSON.parse(result[0].content))[0]);
         console.log(canvasObject);
-        res.render('workspaceCollab', {canvasObject: canvasObject, userId: res.locals.user.id, currDoc: req.params.docName  });
+        console.log(io.engine.clientsCount);
+        if(io.engine.clientsCount > 3){
+            res.render('error');
+        }
+        else{
+            res.render('workspaceCollab', {canvasObject: canvasObject, userId: res.locals.user.id, currDoc: req.params.docName  });
+        }
+        
 
     }
     catch(err){
